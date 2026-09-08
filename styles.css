@@ -208,6 +208,9 @@ button{font:inherit;color:inherit}
 }
 .tile figcaption em{font-style:normal;font-size:12px;color:rgba(246,243,236,.65)}
 .tile:hover figcaption,.tile:focus-within figcaption{opacity:1;transform:none}
+.grid.is-clamped .tile:nth-child(n+4){display:none}
+.grid__more{display:none;width:100%;margin-top:22px}
+.grid.is-clamped+.grid__more,.grid__more:not([hidden]){display:inline-flex}
 
 /* ---------- quiz ---------- */
 .quiz{padding:120px 0;background:var(--bone)}

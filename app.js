@@ -123,6 +123,25 @@
   });
   setStep(0);
 
+  /* ---------- portfolio: three tiles on phones ---------- */
+  var grid = $('#grid');
+  var gridMore = $('#gridMore');
+  var narrow = window.matchMedia('(max-width:860px)');
+
+  function syncGrid() {
+    if (grid.dataset.expanded === '1') return;
+    var clamp = narrow.matches;
+    grid.classList.toggle('is-clamped', clamp);
+    gridMore.hidden = !clamp;
+  }
+  gridMore.addEventListener('click', function () {
+    grid.dataset.expanded = '1';
+    grid.classList.remove('is-clamped');
+    gridMore.hidden = true;
+  });
+  narrow.addEventListener('change', syncGrid);
+  syncGrid();
+
   /* ---------- quiz ---------- */
   var QUESTIONS = [
     'Изделие', 'Конфигурация', 'Размер по фронту', 'Состояние помещения', 'Сроки'
