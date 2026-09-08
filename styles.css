@@ -157,6 +157,7 @@ button{font:inherit;color:inherit}
 .hero .eyebrow{color:rgba(246,243,236,.62)}
 .hero__h{font-size:clamp(34px,5.2vw,74px);max-width:17ch;line-height:1.03}
 .hero__h em{font-style:normal;color:var(--sage-soft)}
+.hero__brief{display:none}
 .hero__p{margin-top:32px;max-width:52ch;color:rgba(246,243,236,.78);font-size:17px}
 .hero__cta{margin-top:40px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
 .hero__cta .btn{background:var(--sage);border-color:var(--sage);color:#1B2118}
@@ -360,14 +361,22 @@ button{font:inherit;color:inherit}
   .sec-head{margin-bottom:44px}
   .h2{font-size:clamp(26px,6.8vw,38px)}
   .q legend{font-size:clamp(21px,5.6vw,27px)}
-  .hero{min-height:0;padding-top:110px}
+  .hero{min-height:86svh;padding-top:96px}
+  .hero__full{display:none}
+  .hero__brief{display:inline}
+  .hero__p{margin-top:18px;font-size:16px;max-width:34ch}
   .hero__media img{object-position:52% 50%}
   .hero__scrim{background:
-    linear-gradient(180deg,rgba(10,15,10,.5) 0%,rgba(10,15,10,.3) 30%,rgba(10,15,10,.45) 70%,rgba(10,15,10,.66) 100%)}
+    linear-gradient(180deg,
+      rgba(10,15,10,.44) 0%,
+      rgba(10,15,10,.18) 24%,
+      rgba(10,15,10,.5) 54%,
+      rgba(10,15,10,.78) 100%)}
   .hero__in{padding-bottom:44px}
   .hero__h{font-size:clamp(31px,8.2vw,44px)}
   .hero__p{margin-top:22px}
-  .hero__cta{margin-top:32px;gap:16px}
+  .hero__cta{margin-top:28px}
+  .hero__cta .btn{padding:17px 30px}
 }
 @media (max-width:520px){
   .grid{grid-template-columns:1fr}
