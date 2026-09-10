@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/logo-mark.png">
 <link rel="preload" as="image" href="assets/hero.webp" imagesrcset="assets/hero.webp" media="(min-width:861px)">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -221,7 +221,15 @@
 
 <section class="dp">
   <div class="wrap dp__in">
-    <div class="dp__media"><div class="ph ph--dp"><span>чертёж или визуализация</span></div></div>
+    <figure class="dp__media">
+      <a class="dp__zoom" href="assets/work/drawing-kitchen.jpg" target="_blank" rel="noopener" aria-label="Открыть чертёж в полном размере">
+      <picture>
+        <source type="image/webp" srcset="assets/work/drawing-kitchen.webp">
+        <img src="assets/work/drawing-kitchen.jpg" alt="Пример рабочего чертежа кухни: развёртка стены с размерами каждого модуля" width="1200" height="896" loading="lazy" decoding="async">
+      </picture>
+      </a>
+      <figcaption>Так выглядит рабочий чертёж, который вы получаете до договора</figcaption>
+    </figure>
     <div class="dp__body">
       <p class="eyebrow eyebrow--brass">Уже есть проект</p>
       <h2 class="h2">Пришлите визуализацию, вернём смету и замечания</h2>

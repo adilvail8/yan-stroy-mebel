@@ -280,7 +280,13 @@ button{font:inherit;color:inherit}
 /* ---------- design project ---------- */
 .dp{padding:120px 0;background:var(--bone-2)}
 .dp__in{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
-.dp__media .ph{aspect-ratio:4/5}
+.dp__media{margin:0}
+.dp__media img{
+  width:100%;height:auto;display:block;background:#F3EFE6;
+  box-shadow:0 1px 0 var(--line),0 24px 50px -24px rgba(35,52,43,.35);
+}
+.dp__zoom{display:block;cursor:zoom-in}
+.dp__media figcaption{margin-top:16px;font-size:13px;color:var(--muted)}
 .dp__body>p{color:var(--muted);margin-top:24px;max-width:58ch}
 .dp__body .btn{margin-top:34px}
 
