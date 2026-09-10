@@ -195,11 +195,28 @@ button{font:inherit;color:inherit}
 
 /* ---------- projects ---------- */
 .projects{padding:120px 0;background:var(--bone-2)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;grid-auto-flow:dense}
-.tile{margin:0;position:relative;overflow:hidden}
-.tile .ph{aspect-ratio:1/1}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;grid-auto-flow:dense;background:var(--bone-3)}
+.tile{margin:0;position:relative;overflow:hidden;background:var(--bone-3)}
+.tile img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:1/1;transition:transform 1.1s var(--ease)}
+.tile:hover img{transform:scale(1.035)}
 .tile--w{grid-column:span 2}
-.tile--w .ph{aspect-ratio:2/1}
+.tile--w img{aspect-ratio:2/1}
+@media (min-width:861px){
+  .grid{grid-template-areas:
+    "walk k1 k1 slide"
+    "walk vanity study kids"
+    "k2 k2 tv kids"}
+  .grid .tile{grid-column:auto}
+  .tile[data-a="k1"]{grid-area:k1}
+  .tile[data-a="walk"]{grid-area:walk}
+  .tile[data-a="slide"]{grid-area:slide}
+  .tile[data-a="vanity"]{grid-area:vanity}
+  .tile[data-a="study"]{grid-area:study}
+  .tile[data-a="k2"]{grid-area:k2}
+  .tile[data-a="tv"]{grid-area:tv}
+  .tile[data-a="kids"]{grid-area:kids}
+  .tile--tall img{aspect-ratio:auto}
+}
 .tile figcaption{
   position:absolute;inset:auto 0 0 0;padding:20px 22px;display:grid;gap:3px;
   background:linear-gradient(180deg,transparent,rgba(22,33,27,.82));
@@ -353,7 +370,6 @@ button{font:inherit;color:inherit}
   .pay__panel{padding:38px 26px 42px}
   .grid{grid-template-columns:repeat(2,1fr)}
   .tile figcaption{opacity:1;transform:none}
-  .tile .ph span{bottom:auto;top:14px}
   .quiz__side,.quiz__main{padding:38px 24px 42px}
   .opts--grid,.fields{grid-template-columns:1fr}
   .mat__grid{grid-template-columns:1fr}
@@ -384,7 +400,7 @@ button{font:inherit;color:inherit}
 @media (max-width:520px){
   .grid{grid-template-columns:1fr}
   .tile--w{grid-column:span 1}
-  .tile--w .ph{aspect-ratio:1/1}
+  .tile--w img{aspect-ratio:1/1}
   .track{grid-template-columns:1fr 1fr}
   .track li:nth-child(odd) .step{border-left:0}
   .mark{height:64px}
