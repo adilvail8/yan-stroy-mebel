@@ -444,3 +444,14 @@ button{font:inherit;color:inherit}
   .mark{height:64px}
   .hdr.is-stuck .mark{height:40px}
 }
+
+/* ---------- ссылки на страницы услуг ---------- */
+.svc{margin-top:46px;display:grid;gap:14px}
+.svc__t{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.svc__l{display:flex;flex-wrap:wrap;gap:8px}
+.svc__l a{
+  text-decoration:none;border:1px solid var(--line);padding:10px 17px;font-size:14px;color:var(--forest);
+  transition:border-color .3s var(--ease),background .3s var(--ease)
+}
+.svc__l a:hover{border-color:var(--forest);background:var(--bone-2)}
+.ftr__in nav{flex-wrap:wrap}

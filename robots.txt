@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yan-stroy-mebel.kz/sitemap.xml
