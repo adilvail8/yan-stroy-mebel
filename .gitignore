@@ -2,3 +2,6 @@ Thumbs.db
 .DS_Store
 .claude/
 assets/work/*-source.jpg
+
+# Local Netlify folder
+.netlify
