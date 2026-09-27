@@ -18,7 +18,7 @@ BIZ = {
     "@type": ["LocalBusiness", "FurnitureStore"],
     "@id": BASE + "#business",
     "name": "YanStroyMebel",
-    "alternateName": ["Ян Строй Мебель", "Yan Stroy Mebel", "ЯнСтройМебель", "YSM"],
+    "alternateName": ["Ян Строй Мебель", "Янстрой Мебель", "Янстрой", "Ян Строй", "Yan Stroy Mebel", "YanStroy", "ЯнСтройМебель", "YSM"],
     "description": "Производство корпусной мебели на заказ в Алматы: кухни, шкафы-купе, гардеробные, мебель для ванной и офиса. Материалы и работу цеха финансирует компания, первый платёж после осмотра готовой мебели.",
     "url": BASE,
     "telephone": "+77089249883",
@@ -330,6 +330,24 @@ def write_sitemap():
         x.append("  <url><loc>%s</loc><lastmod>%s</lastmod><priority>%s</priority></url>" % (u, TODAY, pr))
     x.append("</urlset>")
     io.open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write("\n".join(x) + "\n")
+
+
+INDEXNOW_KEY = "29992ec57510ec799a343c15f9b442d2"
+
+
+def ping_indexnow():
+    """Сообщает Bing, Yandex и другим поисковикам о новых страницах."""
+    import json as _json, urllib.request
+    urls = [BASE] + [BASE + p["slug"] + "/" for p in PAGES]
+    body = _json.dumps({"host": "yan-stroy-mebel.kz", "key": INDEXNOW_KEY,
+                        "keyLocation": BASE + INDEXNOW_KEY + ".txt", "urlList": urls}).encode()
+    req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                 headers={"Content-Type": "application/json; charset=utf-8"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            print("IndexNow:", r.status)
+    except Exception as e:
+        print("IndexNow error:", e)
 
 
 def write_robots():
