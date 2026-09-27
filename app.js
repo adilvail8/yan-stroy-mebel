@@ -123,6 +123,51 @@
   });
   setStep(0);
 
+  /* ---------- material tiers ---------- */
+  var TIERS = [
+    {
+      body: 'ЛДСП 16 мм, кромка ПВХ 1 мм. Влагостойкая плита в зоне мойки и в санузле.',
+      front: 'Плёночный МДФ 16 мм, гладкие плиты или простая фрезеровка. Базовая палитра цветов.',
+      hw: 'Boyard: петли и направляющие с доводчиком, подъёмные механизмы, штанги для гардеробных.',
+      top: 'Постформинг с влагостойким основанием, кромка в цвет.'
+    },
+    {
+      body: 'ЛДСП 16 мм, кромка ПВХ 1 мм. Влагостойкая плита в зоне мойки и в санузле.',
+      front: 'МДФ 16 и 18 мм в эмали или плёнке, фрезеровка под дерево, стекло в алюминиевой рамке.',
+      hw: 'Hafele и Boyard: скрытые петли с доводчиком, направляющие полного выдвижения, сетчатое наполнение.',
+      top: 'Акриловый камень с бесшовной стыковкой, интегрированная мойка по желанию.'
+    },
+    {
+      body: 'ЛДСП 16 мм, кромка ПВХ 1 мм. Влагостойкая плита в зоне мойки и в санузле.',
+      front: 'МДФ 18 мм: шпон, эмаль по каталогу, комбинированные фасады, стекло в алюминиевой рамке.',
+      hw: 'Blum: Legrabox, Aventos, Tip-On и Servo-Drive, доводчики на всех фасадах и ящиках.',
+      top: 'Кварцевый агломерат, торцы и стыки под ваш рисунок камня.'
+    }
+  ];
+
+  var tiers = $('#tiers');
+  if (tiers) {
+    var matBody = $('#matBody'), matFront = $('#matFront'), matHw = $('#matHw'), matTop = $('#matTop');
+    var setTier = function (i) {
+      var t = TIERS[i];
+      if (!t) return;
+      $$('.tier', tiers).forEach(function (b) {
+        var on = Number(b.dataset.tier) === i;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-selected', String(on));
+      });
+      matBody.textContent = t.body;
+      matFront.textContent = t.front;
+      matHw.textContent = t.hw;
+      matTop.textContent = t.top;
+    };
+    tiers.addEventListener('click', function (e) {
+      var b = e.target.closest('.tier');
+      if (b) setTier(Number(b.dataset.tier));
+    });
+    setTier(0);
+  }
+
   /* ---------- portfolio: three tiles on phones ---------- */
   var grid = $('#grid');
   var gridMore = $('#gridMore');

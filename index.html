@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=Manrope:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/logo-mark.png">
 <link rel="preload" as="image" href="assets/hero.webp" imagesrcset="assets/hero.webp" media="(min-width:861px)">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -38,6 +38,7 @@
       <a href="#pay"><b>Без предоплаты</b><em>как устроена оплата 50 на 50</em></a>
       <a href="#projects"><b>Работы</b><em>проекты, сданные в Алматы</em></a>
       <a href="#quiz"><b>Расчёт стоимости</b><em>шесть вопросов, смета в WhatsApp</em></a>
+      <a href="#mat"><b>Комплектации</b><em>стандарт, комфорт, премиум</em></a>
       <a href="#faq"><b>Вопросы</b><em>сроки, гарантия, материалы</em></a>
       <a href="#contacts"><b>Контакты</b><em>+7 708 924 98 83</em></a>
     </div>
@@ -240,17 +241,25 @@
   </div>
 </section>
 
-<section class="mat">
+<section class="mat" id="mat">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow eyebrow--brass">Материалы</p>
+      <p class="eyebrow eyebrow--brass">Комплектации</p>
       <h2 class="h2">Что стоит за словом «качество»</h2>
+      <p class="lead lead--light">Один и тот же проект мы считаем в трёх комплектациях. Отличаются фасады, фурнитура и столешница, геометрия и сборка одинаковые. Выберите уровень, чтобы посмотреть состав.</p>
     </div>
-    <div class="mat__grid">
-      <article><h3>Корпус</h3><p>ЛДСП 16 мм, кромка ПВХ 1 мм. Влагостойкая плита в зоне мойки и в санузле.</p></article>
-      <article><h3>Фасады</h3><p>МДФ 16 и 18 мм: плёночный, эмаль, шпон. Стекло в алюминиевой рамке, фрезеровка под дерево или гладкие плиты.</p></article>
-      <article><h3>Фурнитура</h3><p>Blum, Hafele, Boyard: петли и направляющие с доводчиком, подъёмные механизмы, сетчатое наполнение и штанги для гардеробных.</p></article>
-      <article><h3>Столешницы</h3><p>Постформинг, акриловый камень, кварцевый агломерат. Подбираем под нагрузку и бюджет, не наоборот.</p></article>
+
+    <div class="tiers" id="tiers" role="tablist" aria-label="Комплектации">
+      <button class="tier is-on" role="tab" aria-selected="true" data-tier="0"><b>Стандарт</b><em>рабочий минимум без компромиссов по корпусу</em></button>
+      <button class="tier" role="tab" aria-selected="false" data-tier="1"><b>Комфорт</b><em>эмаль и фурнитура с доводчиками на весь фронт</em></button>
+      <button class="tier" role="tab" aria-selected="false" data-tier="2"><b>Премиум</b><em>шпон, камень, механика Blum</em></button>
+    </div>
+
+    <div class="mat__grid" id="matGrid" role="tabpanel" aria-live="polite">
+      <article><h3>Корпус</h3><p id="matBody"></p></article>
+      <article><h3>Фасады</h3><p id="matFront"></p></article>
+      <article><h3>Фурнитура</h3><p id="matHw"></p></article>
+      <article><h3>Столешницы</h3><p id="matTop"></p></article>
     </div>
   </div>
 </section>
@@ -314,6 +323,6 @@
   <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.86 9.86 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.41-.56-.42h-.48c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
 </a>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

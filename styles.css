@@ -293,6 +293,18 @@ button{font:inherit;color:inherit}
 /* ---------- materials ---------- */
 .mat{padding:120px 0;background:var(--forest);color:var(--bone)}
 .mat .h2{color:var(--bone)}
+.mat .lead--light{color:rgba(246,243,236,.72)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:8px}
+.tier{
+  appearance:none;background:none;border:1px solid rgba(246,243,236,.2);border-right:0;color:var(--bone);
+  text-align:left;padding:22px 24px 24px;cursor:pointer;display:grid;gap:7px;transition:background .35s var(--ease)
+}
+.tier:last-child{border-right:1px solid rgba(246,243,236,.2)}
+.tier b{font-family:"Golos Text",sans-serif;font-weight:600;font-size:20px;letter-spacing:-.01em}
+.tier em{font-style:normal;font-size:13px;line-height:1.45;color:rgba(246,243,236,.55)}
+.tier:hover{background:rgba(246,243,236,.05)}
+.tier.is-on{background:rgba(246,243,236,.1)}
+.tier.is-on b{color:var(--sage-soft)}
 .mat__grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(246,243,236,.2)}
 .mat__grid article{padding:34px 28px 40px 0}
 .mat__grid article+article{padding-left:28px;border-left:1px solid rgba(246,243,236,.2)}
@@ -373,6 +385,9 @@ button{font:inherit;color:inherit}
 @media (max-width:1080px){
   .quiz__box{grid-template-columns:1fr}
   .cnt__in,.faq__in,.dp__in{grid-template-columns:1fr;gap:44px}
+  .tiers{grid-template-columns:1fr}
+  .tier{border-right:1px solid rgba(246,243,236,.2);border-bottom:0}
+  .tier:last-child{border-bottom:1px solid rgba(246,243,236,.2)}
   .mat__grid{grid-template-columns:1fr 1fr}
   .mat__grid article:nth-child(3){border-left:0;padding-left:0}
   .mat__grid article:nth-child(n+3){border-top:1px solid rgba(246,243,236,.2)}
